@@ -5,23 +5,30 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String [] args){
-        generateCompanies();
+        generateBookingsCompany();
     }
 
 
 
-    public static void generateBookings(){
-        for (int i = 0; i < 1000; i++) {
-
+    public static void generateBookingsPrivate(){
+        Random random = new Random();
+        for (int i = 0; i < 300; i++) {
+            System.out.println("EXEC dbo.utworzRezerwacje " + (1030 + random.nextInt(100)));
         }
     }
 
+    public static void generateBookingsCompany(){
+        Random random = new Random();
+        for (int i = 0; i < 900; i++) {
+            System.out.println("EXEC dbo.utworzRezerwacje " + (1130 + random.nextInt(100)));
+        }
+    }
 
 
     public static void generateCompanies(){
         Random random = new Random();
         Integer j,z;
-        for (int i = 0; i < 2 * companies.length; i++) {
+        for (int i = 0; i < 50; i++) {
             j = random.nextInt(companies.length);
             z = random.nextInt();
             int index = names[j].indexOf(' ');
@@ -34,7 +41,7 @@ public class Main {
     public static void generateCustomers(){
         Random random = new Random();
         Integer j,z;
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             j = random.nextInt(100);
             z = random.nextInt();
             int index = names[j].indexOf(' ');
@@ -48,7 +55,7 @@ public class Main {
 
     public static void generateCities(){
         for (int i = 0; i < cities.length; i++) {
-            System.out.println("EXEC dbo.dodajMiasto " + cities[i] + " Polska");
+            System.out.println("EXEC dbo.dodajMiasto '" + cities[i] + "', 'Polska'");
         }
     }
     static void genSlownik() {
